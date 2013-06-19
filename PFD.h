@@ -21,9 +21,13 @@ using namespace std;
 // GLOBAL VARIABLES
 int pfd_graph[MAX_SIZE][MAX_SIZE]; // A graph representing the partial ordering
 int initial_total_task = 0;
-int task_left = -1;
-int initial_value = -1;
-int pass = -2;
+int task_left = 0;
+
+// constant values named for ease of reading
+const int initial_value = -1;
+const int pass = -2;
+
+//heap maintaining the list of vertices that have been removed
 priority_queue< int, vector<int>, greater<int> > min_heap;
 
 // ------------
@@ -45,10 +49,11 @@ bool pfd_read (std::istream& input)
     assert(task_left > 0);
     assert(task_left < 101);
     initial_total_task = task_left;
+    assert(initial_total_task < MAX_SIZE);
 
     int rule_count;
     input >> rule_count;
-    assert(rule_count > 0);
+    assert(rule_count >= 0);
     assert(rule_count < 101);
 
     for(int i = 0; i < rule_count; i++)
@@ -56,13 +61,13 @@ bool pfd_read (std::istream& input)
         int current_vertex, dependencies;
         input >> current_vertex;
         input >> dependencies;
-	assert(current_vertex > 0);
+    	assert(current_vertex > 0);
     	assert(current_vertex < 101);
     	assert(dependencies > 0);
     	assert(dependencies < 101);
 
         pfd_graph[current_vertex][0] = dependencies;
-
+        assert(dependencies < MAX_SIZE);
         for(int j = 1; j <= dependencies; j++)
         {
             input >> pfd_graph[current_vertex][j];
@@ -87,6 +92,9 @@ void pfd_clean(int needClean)
     // Move through the entire graph
     for(int i = 1; i <= initial_total_task; i++)
     {
+        assert(initial_total_task < MAX_SIZE);
+        assert(i > 0);
+        assert(i < 101);
 	// Ignore the vertices that do not have any prerequisites or that have already been removed from the graph
         if((pfd_graph[i][0] == 0) || (pfd_graph[i][0] == initial_value) || (pfd_graph[i][0] == pass))
         {
@@ -99,6 +107,8 @@ void pfd_clean(int needClean)
 	    // Stop moving through the array when there are no more prerequisites for the current vertex
 	    // Indicated by encountering the initial_value in the array
 	    // Remove the integer, needClean from the prerequisite list and deincrement the prerequisite count
+            assert(j > 0);
+            assert(j < 101);
             if(pfd_graph[i][j] == initial_value)
             {
                 break;
@@ -130,13 +140,17 @@ void pfd_remove()
 	// Deincrement task_left variable, which tracks how many vertices are left in the graph
 	// Set the vertex in pfd_graph to pass, which shows that the vertex has been removed from the graph
 	// Remove the vertex from the rest of the graph
+        assert(i > 0);
+        assert(i < 101);
+        assert(initial_value == -1);
+        assert(pass == -2);
         if((pfd_graph[i][0] == initial_value) || (pfd_graph[i][0] == 0))
         {
             min_heap.push(i);
             task_left--;
             pfd_graph[i][0] = pass;
             pfd_clean(i);
-	    break;
+    	    break;
         }
         else if(pfd_graph[i][0] == pass) // Ignore vertices that have already been removed from the graph
         {
@@ -169,8 +183,9 @@ void pfd_solve (std::istream& input, std::ostream& output)
     if(!pfd_read(input))
     {
         output << "empty input stream";
+        assert(false);
     }
-
+    
     // Run pfd_remove to initialize min_heap
     pfd_remove();
 
@@ -178,14 +193,15 @@ void pfd_solve (std::istream& input, std::ostream& output)
     // The graph is empty when min_heap is empty
     while(!min_heap.empty())
     {
+        assert(min_heap.empty() == false);
         int m = min_heap.top();
 	
-	assert(m > 0);
+    	assert(m > 0);
     	assert(m < 101);
 
         min_heap.pop();
     	pfd_remove();
-        cout << m << " ";
+        output << m << " ";
     }    
 }
 
