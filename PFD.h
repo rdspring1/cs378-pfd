@@ -11,13 +11,14 @@
 
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
-
-#define MAX_SIZE 6
+#include <queue>
+#define MAX_SIZE 101
 using namespace std;
 // graph representing the partial ordering
 int pfd_graph[MAX_SIZE][MAX_SIZE];
 int initial_total_task = 0;
 int task_left = -1;
+priority_queue< int, vector<int>, greater<int> > min_heap;
 // ------------
 // pfd_read
 // ------------
@@ -101,7 +102,8 @@ void pfd_remove()
    //     cout << pfd_graph[i][0] << "\n";
         if((pfd_graph[i][0] == initial_value) || (pfd_graph[i][0] == 0))
         {
-            cout << i << " ";
+            //cout << i << " ";
+            min_heap.push(i);
             task_left--;
  //           cout << "taskleft: " <<task_left<<"\n";
             pfd_graph[i][0] = pass;
@@ -139,9 +141,17 @@ void pfd_solve (std::istream& input, std::ostream& output)
         output << "empty input stream";
     }
 //    print_graph();
-   while(task_left > 0)
+    pfd_remove();
+    while(!min_heap.empty())
     {
         pfd_remove();
+        int m = min_heap.top();
+        min_heap.pop();
+        if(min_heap.empty())
+            cout << m;
+        else
+            cout << m << " ";
+//        cout << min_heap.pop();
     }
          
 }
