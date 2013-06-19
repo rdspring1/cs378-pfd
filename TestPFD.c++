@@ -1,7 +1,8 @@
 // --------------------------------
-// projects/collatz/TestCollatz.c++
+// projects/pfd/TestPFD.c++
 // Copyright (C) 2011
-// Glenn P. Downing
+// Ryan Spring
+// Jung (James) Lee
 // --------------------------------
 
 /*
