@@ -10,8 +10,8 @@
 // includes
 // --------
 
-#include <iostream> // cin, cout, ios_base, endl, istream, ostream
 #include <cassert>  // assert
+#include <iostream> // endl, istream, ostream
 #include <queue>
 
 // CONSTANTS
@@ -43,16 +43,25 @@ bool pfd_read (std::istream& input)
         return false;
 
     input >> task_left;
+    assert(task_left > 0);
+    assert(task_left < 101);
     initial_total_task = task_left;
 
     int rule_count;
     input >> rule_count;
+    assert(rule_count > 0);
+    assert(rule_count < 101);
 
     for(int i = 0; i < rule_count; i++)
     {
         int current_vertex, dependencies;
         input >> current_vertex;
         input >> dependencies;
+	assert(current_vertex > 0);
+    	assert(current_vertex < 101);
+    	assert(dependencies > 0);
+    	assert(dependencies < 101);
+
         pfd_graph[current_vertex][0] = dependencies;
 
         for(int j = 1; j <= dependencies; j++)
@@ -61,26 +70,6 @@ bool pfd_read (std::istream& input)
         }
     }
     return true;
-}
-
-
-// ------------
-// print_graph
-// ------------
-
-/**
- * Prints pfd_graph to the command line
- */
-void print_graph()
-{
-    for(int i = 0; i < MAX_SIZE; i++)
-    {
-        for(int j = 0; j < MAX_SIZE; j++)
-        {
-            cout << pfd_graph[i][j] << " ";
-        }
-        cout << "\n";
-    }
 }
 
 // ------------
@@ -93,6 +82,9 @@ void print_graph()
  */
 void pfd_clean(int needClean)
 {
+    assert(needClean > 0);
+    assert(needClean < 101);
+
     // Move through the entire graph
     for(int i = 1; i <= initial_total_task; i++)
     {
@@ -127,14 +119,14 @@ void pfd_clean(int needClean)
 
 /**
  * Adds the first vertex that does not have any prerequisites to min_heap
- * After finding those verticies, the function pfd_clean is run.
- * The function pfd_clean removes those verticies from the graph
+ * After finding the vertex, the function pfd_clean is run.
+ * The function pfd_clean removes the vertex from the pfd_graph
  */
 void pfd_remove()
 {
     for(int i = 1; i <= initial_total_task; i++)
     {
-	// Remove the vertices that do not have any prerequisites
+	// Remove the first vertex that does not have any prerequisites
 	// Add the vertex to min_heap
 	// Deincrement task_left variable, which tracks how many vertices are left in the graph
 	// Set the vertex in pfd_graph to pass, which shows that the vertex has been removed from the graph
@@ -181,17 +173,19 @@ void pfd_solve (std::istream& input, std::ostream& output)
     }
 
     // Run pfd_remove to initialize min_heap
-    // 
     pfd_remove();
 
-    // 
+    // Continue to remove elements from the graph until the graph is empty
+    // The graph is empty when min_heap is empty
     while(!min_heap.empty())
     {
         int m = min_heap.top();
+	
+	assert(m > 0);
+    	assert(m < 101);
+
         min_heap.pop();
-
-	pfd_remove();
-
+    	pfd_remove();
         cout << m << " ";
     }    
 }
