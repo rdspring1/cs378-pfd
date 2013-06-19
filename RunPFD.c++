@@ -46,4 +46,5 @@ int main () {
     using namespace std;
     ios_base::sync_with_stdio(false); // turn off synchronization with C I/O
     pfd_solve(cin, cout);
-    return 0;}
+    return 0;
+}

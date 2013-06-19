@@ -1,16 +1,17 @@
-// --------------------------
-// projects/pfd/PFD.h
-// Copyright (C) 2011
-// Ryan Spring
-// Jung (James) Lee
-// --------------------------
+// -------
+// defines
+// -------
+
+#ifdef ONLINE_JUDGE
+    #define NDEBUG
+#endif
 
 // --------
 // includes
 // --------
 
+#include <iostream> // cin, cout, ios_base, endl, istream, ostream
 #include <cassert>  // assert
-#include <iostream> // endl, istream, ostream
 #include <queue>
 
 // CONSTANTS
@@ -193,4 +194,15 @@ void pfd_solve (std::istream& input, std::ostream& output)
 
         cout << m << " ";
     }    
+}
+
+// ----
+// main
+// ----
+
+int main () {
+    using namespace std;
+    ios_base::sync_with_stdio(false); // turn off synchronization with C I/O
+    pfd_solve(cin, cout);
+    return 0;
 }
