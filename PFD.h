@@ -12,41 +12,48 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <queue>
+
+// CONSTANTS
 #define MAX_SIZE 101
+
 using namespace std;
-// graph representing the partial ordering
-int pfd_graph[MAX_SIZE][MAX_SIZE];
+
+// GLOBAL VARIABLES
+int pfd_graph[MAX_SIZE][MAX_SIZE]; // A graph representing the partial ordering
 int initial_total_task = 0;
 int task_left = -1;
+int initial_value = -1;
+int pass = -2;
 priority_queue< int, vector<int>, greater<int> > min_heap;
+
 // ------------
 // pfd_read
 // ------------
 
-int initial_value = -1;
-int pass = -2;
-
 /**
- * reads two ints into range1 and range2
- * @param input a  std::istream
- * @param range1 an int by reference
- * @param range2 an int by reference
+ * Generates the graph by reading from the istream
+ * @param input a std::istream
  * @return true if that succeeds, false otherwise
  */
 bool pfd_read (std::istream& input) 
 {
+    // If the file does not contain any input, return false
     if (!input)
         return false;
-    int rule_count;
+
     input >> task_left;
     initial_total_task = task_left;
+
+    int rule_count;
     input >> rule_count;
+
     for(int i = 0; i < rule_count; i++)
     {
         int current_vertex, dependencies;
         input >> current_vertex;
         input >> dependencies;
         pfd_graph[current_vertex][0] = dependencies;
+
         for(int j = 1; j <= dependencies; j++)
         {
             input >> pfd_graph[current_vertex][j];
@@ -55,6 +62,14 @@ bool pfd_read (std::istream& input)
     return true;
 }
 
+
+// ------------
+// print_graph
+// ------------
+
+/**
+ * Prints pfd_graph to the command line
+ */
 void print_graph()
 {
     for(int i = 0; i < MAX_SIZE; i++)
@@ -67,25 +82,37 @@ void print_graph()
     }
 }
 
-void pfd_clean(int needClean[])
+// ------------
+// pfd_clean
+// ------------
+
+/**
+ * Removes the number added to min_heap from pfd_graph
+ * @param needClean an integer that needs to be removed from the graph
+ */
+void pfd_clean(int needClean)
 {
+    // Move through the entire graph
     for(int i = 1; i <= initial_total_task; i++)
     {
+	// Ignore the vertices that do not have any prerequisites or that have already been removed from the graph
         if((pfd_graph[i][0] == 0) || (pfd_graph[i][0] == initial_value) || (pfd_graph[i][0] == pass))
         {
             continue;
         }
+
+	// Move through all of the prerequisites for the vertex
         for(int j = 1; j < MAX_SIZE; j++)
         {
-//            cout << "THIS IS I: " << i << "\n";
- //           cout << pfd_graph[i][j] << "t\n";
+	    // Stop moving through the array when there are no more prerequisites for the current vertex
+	    // Indicated by encountering the initial_value in the array
+	    // Remove the integer, needClean from the prerequisite list and deincrement the prerequisite count
             if(pfd_graph[i][j] == initial_value)
             {
                 break;
             }
-            else if(needClean[pfd_graph[i][j]] == 1 )
+            else if(pfd_graph[i][j] == needClean)
             {
-   //             cout << pfd_graph[i][j] <<"\n";
                 pfd_graph[i][j] = 0;
                 pfd_graph[i][0]--;
             }
@@ -93,33 +120,37 @@ void pfd_clean(int needClean[])
     }
 }
 
+// ------------
+// pfd_remove
+// ------------
 
+/**
+ * Adds any verticies that do not have any prerequisites to min_heap
+ * After finding those verticies, the function pfd_clean is run.
+ * The function pfd_clean removes those verticies from the graph
+ */
 void pfd_remove()
 {
-    int needClean[MAX_SIZE] = {0};
     for(int i = 1; i <= initial_total_task; i++)
     {
-   //     cout << pfd_graph[i][0] << "\n";
+	// Remove the vertices that do not have any prerequisites
+	
         if((pfd_graph[i][0] == initial_value) || (pfd_graph[i][0] == 0))
         {
-            //cout << i << " ";
             min_heap.push(i);
             task_left--;
- //           cout << "taskleft: " <<task_left<<"\n";
             pfd_graph[i][0] = pass;
-            needClean[i] = 1;
+            pfd_clean(i);
         }
-        else if(pfd_graph[i][0] == pass)
+        else if(pfd_graph[i][0] == pass) // Ignore vertices that have already been removed from the graph
         {
             continue;
         }
-    }    
-    pfd_clean(needClean);
-
+    }
 }
 
 // -------------
-// collatz_solve
+// pfd_solve
 // -------------
 
 /**
