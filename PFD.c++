@@ -11,7 +11,7 @@ using namespace std;
  * @param pfd_graph A graph representing the partial ordering of the PFD problem 
  * @return return the number of tasks for the problem if the function succeeds, -1 otherwise
  */
-int pfd_read (istream& input, int pfd_graph[][MAX_SIZE]) 
+int pfd_read (istream& input, int pfd_graph[MAX_SIZE][MAX_SIZE]) 
 {
 	int task_left = 0;
 
@@ -54,7 +54,7 @@ int pfd_read (istream& input, int pfd_graph[][MAX_SIZE])
  * @param initial_total_task the original number of tasks for the PFD problem
  * @param pfd_graph A graph representing the partial ordering of the PFD problem 
  */
-void pfd_clean(int needClean, int initial_total_task, int pfd_graph[][MAX_SIZE])
+void pfd_clean(int needClean, int initial_total_task, int pfd_graph[MAX_SIZE][MAX_SIZE])
 {
     assert(needClean > 0);
     assert(needClean < 101);
@@ -101,7 +101,7 @@ void pfd_clean(int needClean, int initial_total_task, int pfd_graph[][MAX_SIZE])
  * @param pfd_graph A graph representing the partial ordering of the PFD problem 
  * @param min_heap A heap maintaining the list of vertices that have been removed
  */
-void pfd_remove(int& task_left, int& initial_total_task, int pfd_graph[][MAX_SIZE], priority_queue< int, vector<int>, greater<int> >& min_heap)
+void pfd_remove(int& task_left, int& initial_total_task, int pfd_graph[MAX_SIZE][MAX_SIZE], priority_queue< int, vector<int>, greater<int> >& min_heap)
 {
     for(int i = 1; i <= initial_total_task; i++)
     {
@@ -136,7 +136,7 @@ void pfd_remove(int& task_left, int& initial_total_task, int pfd_graph[][MAX_SIZ
  * @param pfd_graph A graph representing the partial ordering of the PFD problem 
  * @param min_heap A heap maintaining the list of vertices that have been removed
  */
-void pfd_solve (istream& input, ostream& output, int pfd_graph[][MAX_SIZE], priority_queue< int, vector<int>, greater<int> >& min_heap) 
+void pfd_solve (istream& input, ostream& output, int pfd_graph[MAX_SIZE][MAX_SIZE], priority_queue< int, vector<int>, greater<int> >& min_heap) 
 {
     // Initialize pfd_graph to the INITIAL_VALUE
     for(int i = 0; i < MAX_SIZE; i++)
