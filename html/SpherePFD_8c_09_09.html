@@ -77,8 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#define-members">Defines</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">SpherePFD.c++ File Reference</div>  </div>
 </div><!--header-->
@@ -90,30 +89,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;101</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a54f1d320a82c516bd90957baa4163a4c">INITIAL_VALUE</a>&#160;&#160;&#160;-1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#aba5c54fadff8d880b1945dde87496e31">PASS</a>&#160;&#160;&#160;-2</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a60b5861116fef1c1ae4963c362255c90">pfd_read</a> (std::istream &amp;input)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a531e5be49dee07fd7d1a09705f1efc6d">pfd_clean</a> (int needClean)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a7cdef181a4505668039adaa54028201f">pfd_remove</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a67445889eb7070b72a1d3739317e4b70">pfd_solve</a> (std::istream &amp;input, std::ostream &amp;output)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#adef26ffbd0e35b3ab86c5cf9fa09b6fd">pfd_read</a> (istream &amp;input, int pfd_graph[<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a5238015400f62252e9a68f5018397467">pfd_clean</a> (int needClean, int initial_total_task, int pfd_graph[<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a5e78ac28381615628abc72c39b350e3a">pfd_remove</a> (int &amp;task_left, int &amp;initial_total_task, int pfd_graph[<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>], priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;min_heap)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#ad36f57800cc82aab0c90459a108dd309">pfd_solve</a> (istream &amp;input, ostream &amp;output, int pfd_graph[<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>], priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;min_heap)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#aebc917190076fb3b91904be5c3692157">pfd_graph</a> [<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>]</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a4bb039d4d6923c8e710b48c50aaac81a">initial_total_task</a> = 0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a38c1d599161c0222c30c3040d12988c9">task_left</a> = 0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a5a798d35e11a8dc4792deff2372ee122">initial_value</a> = -1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a671f1ab9b15020f71898c6cda580a7fc">pass</a> = -2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">priority_queue&lt; int, vector<br class="typebreak"/>
-&lt; int &gt;, greater&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SpherePFD_8c_09_09.html#a2baa6214040c6b9867cc70af8c8dc40c">min_heap</a></td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a54f1d320a82c516bd90957baa4163a4c"></a><!-- doxytag: member="SpherePFD.c++::INITIAL_VALUE" ref="a54f1d320a82c516bd90957baa4163a4c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="SpherePFD_8c_09_09.html#a54f1d320a82c516bd90957baa4163a4c">INITIAL_VALUE</a>&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0592dba56693fad79136250c11e5a7fe"></a><!-- doxytag: member="SpherePFD.c++::MAX_SIZE" ref="a0592dba56693fad79136250c11e5a7fe" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">#define <a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;101</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aba5c54fadff8d880b1945dde87496e31"></a><!-- doxytag: member="SpherePFD.c++::PASS" ref="aba5c54fadff8d880b1945dde87496e31" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="SpherePFD_8c_09_09.html#aba5c54fadff8d880b1945dde87496e31">PASS</a>&#160;&#160;&#160;-2</td>
         </tr>
       </table>
 </div>
@@ -138,87 +156,27 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a531e5be49dee07fd7d1a09705f1efc6d"></a><!-- doxytag: member="SpherePFD.c++::pfd_clean" ref="a531e5be49dee07fd7d1a09705f1efc6d" args="(int needClean)" -->
+<a class="anchor" id="a5238015400f62252e9a68f5018397467"></a><!-- doxytag: member="SpherePFD.c++::pfd_clean" ref="a5238015400f62252e9a68f5018397467" args="(int needClean, int initial_total_task, int pfd_graph[MAX_SIZE][MAX_SIZE])" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#a531e5be49dee07fd7d1a09705f1efc6d">pfd_clean</a> </td>
+          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#a5238015400f62252e9a68f5018397467">pfd_clean</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>needClean</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Removes the number added to min_heap from pfd_graph </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">needClean</td><td>an integer that needs to be removed from the graph </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a60b5861116fef1c1ae4963c362255c90"></a><!-- doxytag: member="SpherePFD.c++::pfd_read" ref="a60b5861116fef1c1ae4963c362255c90" args="(std::istream &amp;input)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="SpherePFD_8c_09_09.html#a60b5861116fef1c1ae4963c362255c90">pfd_read</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Generates the graph by reading from the istream </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>a std::istream </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if that succeeds, false otherwise </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a7cdef181a4505668039adaa54028201f"></a><!-- doxytag: member="SpherePFD.c++::pfd_remove" ref="a7cdef181a4505668039adaa54028201f" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#a7cdef181a4505668039adaa54028201f">pfd_remove</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Adds the first vertex that does not have any prerequisites to min_heap After finding the vertex, the function pfd_clean is run. The function pfd_clean removes the vertex from the pfd_graph </p>
-
-</div>
-</div>
-<a class="anchor" id="a67445889eb7070b72a1d3739317e4b70"></a><!-- doxytag: member="SpherePFD.c++::pfd_solve" ref="a67445889eb7070b72a1d3739317e4b70" args="(std::istream &amp;input, std::ostream &amp;output)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#a67445889eb7070b72a1d3739317e4b70">pfd_solve</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
+          <td class="paramname"><em>needClean</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>output</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initial_total_task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pfd_graph</em>[MAX_SIZE][MAX_SIZE]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -228,93 +186,149 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>read, eval, print loop </p>
+<p>Removes the number added to min_heap from pfd_graph </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>a std::istream </td></tr>
-    <tr><td class="paramname">output</td><td>a std::ostream </td></tr>
+    <tr><td class="paramname">needClean</td><td>an integer that needs to be removed from the graph </td></tr>
+    <tr><td class="paramname">initial_total_task</td><td>the original number of tasks for the PFD problem </td></tr>
+    <tr><td class="paramname">pfd_graph</td><td>A graph representing the partial ordering of the PFD problem </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a4bb039d4d6923c8e710b48c50aaac81a"></a><!-- doxytag: member="SpherePFD.c++::initial_total_task" ref="a4bb039d4d6923c8e710b48c50aaac81a" args="" -->
+<a class="anchor" id="adef26ffbd0e35b3ab86c5cf9fa09b6fd"></a><!-- doxytag: member="SpherePFD.c++::pfd_read" ref="adef26ffbd0e35b3ab86c5cf9fa09b6fd" args="(istream &amp;input, int pfd_graph[MAX_SIZE][MAX_SIZE])" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="SpherePFD_8c_09_09.html#a4bb039d4d6923c8e710b48c50aaac81a">initial_total_task</a> = 0</td>
+          <td class="memname">int <a class="el" href="SpherePFD_8c_09_09.html#adef26ffbd0e35b3ab86c5cf9fa09b6fd">pfd_read</a> </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pfd_graph</em>[MAX_SIZE][MAX_SIZE]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Generates the graph by reading from the istream </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>std::istream </td></tr>
+    <tr><td class="paramname">pfd_graph</td><td>A graph representing the partial ordering of the PFD problem </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>return the number of tasks for the problem if the function succeeds, -1 otherwise </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5a798d35e11a8dc4792deff2372ee122"></a><!-- doxytag: member="SpherePFD.c++::initial_value" ref="a5a798d35e11a8dc4792deff2372ee122" args="" -->
+<a class="anchor" id="a5e78ac28381615628abc72c39b350e3a"></a><!-- doxytag: member="SpherePFD.c++::pfd_remove" ref="a5e78ac28381615628abc72c39b350e3a" args="(int &amp;task_left, int &amp;initial_total_task, int pfd_graph[MAX_SIZE][MAX_SIZE], priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;min_heap)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="SpherePFD_8c_09_09.html#a5a798d35e11a8dc4792deff2372ee122">initial_value</a> = -1</td>
+          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#a5e78ac28381615628abc72c39b350e3a">pfd_remove</a> </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>task_left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>initial_total_task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pfd_graph</em>[MAX_SIZE][MAX_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>min_heap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Adds the first vertex that does not have any prerequisites to min_heap After finding the vertex, the function pfd_clean is run. The function pfd_clean removes the vertex from the pfd_graph </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task_left</td><td>the number of tasks for the PFD problem </td></tr>
+    <tr><td class="paramname">initial_total_task</td><td>the original number of tasks for the PFD problem </td></tr>
+    <tr><td class="paramname">pfd_graph</td><td>A graph representing the partial ordering of the PFD problem </td></tr>
+    <tr><td class="paramname">min_heap</td><td>A heap maintaining the list of vertices that have been removed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a2baa6214040c6b9867cc70af8c8dc40c"></a><!-- doxytag: member="SpherePFD.c++::min_heap" ref="a2baa6214040c6b9867cc70af8c8dc40c" args="" -->
+<a class="anchor" id="ad36f57800cc82aab0c90459a108dd309"></a><!-- doxytag: member="SpherePFD.c++::pfd_solve" ref="ad36f57800cc82aab0c90459a108dd309" args="(istream &amp;input, ostream &amp;output, int pfd_graph[MAX_SIZE][MAX_SIZE], priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;min_heap)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">priority_queue&lt; int, vector&lt;int&gt;, greater&lt;int&gt; &gt; <a class="el" href="SpherePFD_8c_09_09.html#a2baa6214040c6b9867cc70af8c8dc40c">min_heap</a></td>
+          <td class="memname">void <a class="el" href="SpherePFD_8c_09_09.html#ad36f57800cc82aab0c90459a108dd309">pfd_solve</a> </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a671f1ab9b15020f71898c6cda580a7fc"></a><!-- doxytag: member="SpherePFD.c++::pass" ref="a671f1ab9b15020f71898c6cda580a7fc" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="SpherePFD_8c_09_09.html#a671f1ab9b15020f71898c6cda580a7fc">pass</a> = -2</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aebc917190076fb3b91904be5c3692157"></a><!-- doxytag: member="SpherePFD.c++::pfd_graph" ref="aebc917190076fb3b91904be5c3692157" args="[MAX_SIZE][MAX_SIZE]" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="SpherePFD_8c_09_09.html#aebc917190076fb3b91904be5c3692157">pfd_graph</a>[<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>]</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pfd_graph</em>[MAX_SIZE][MAX_SIZE], </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a38c1d599161c0222c30c3040d12988c9"></a><!-- doxytag: member="SpherePFD.c++::task_left" ref="a38c1d599161c0222c30c3040d12988c9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="SpherePFD_8c_09_09.html#a38c1d599161c0222c30c3040d12988c9">task_left</a> = 0</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">priority_queue&lt; int, vector&lt; int &gt;, greater&lt; int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>min_heap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<p>read, eval, print loop for solving the PFD sphere problem </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>an istream object to read data </td></tr>
+    <tr><td class="paramname">output</td><td>an ostream object to write data </td></tr>
+    <tr><td class="paramname">pfd_graph</td><td>A graph representing the partial ordering of the PFD problem </td></tr>
+    <tr><td class="paramname">min_heap</td><td>A heap maintaining the list of vertices that have been removed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -336,7 +350,7 @@ Variables</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 25 2013 00:26:18 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 25 2013 00:50:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

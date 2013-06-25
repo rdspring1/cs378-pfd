@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTestPFD.html#a7ecb5afc4b8b4b84b728c2d4e4e72594">graph_initializer</a> (int <a class="el" href="SpherePFD_8c_09_09.html#aebc917190076fb3b91904be5c3692157">pfd_graph</a>[][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTestPFD.html#a7ecb5afc4b8b4b84b728c2d4e4e72594">graph_initializer</a> (int pfd_graph[][<a class="el" href="SpherePFD_8c_09_09.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>])</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTestPFD.html#a42ae69340c5ada29b2b96409b6cd7468">test_pfd_read_basic_functionality</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTestPFD.html#a64637516c2acb456aa6181c2e8d88eeb">test_pfd_read_corner_case_small_number_vertices_in_graph</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTestPFD.html#a70208656f6f62a955bf1e71ddcbd319b">test_pfd_read_corner_case_use_max_value_for_task_left</a> ()</td></tr>
@@ -478,6 +478,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the basic functionality of the pfd clean function </p>
 
 </div>
 </div>
@@ -494,6 +495,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd clean function using multiple clean calls </p>
 
 </div>
 </div>
@@ -510,6 +512,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd clean by cleaning the entire graph for a missing number </p>
 
 </div>
 </div>
@@ -526,6 +529,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd clean function by cleaning a non-existant number in the graph </p>
 
 </div>
 </div>
@@ -542,6 +546,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd clean function by cleaning the entire graph </p>
 
 </div>
 </div>
@@ -558,6 +563,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the basic functionality of the pfd read function </p>
 
 </div>
 </div>
@@ -574,6 +580,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd read function on a small graph </p>
 
 </div>
 </div>
@@ -590,6 +597,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd read function for max number of tasks </p>
 
 </div>
 </div>
@@ -606,6 +614,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test the pfd read function on a failure case </p>
 
 </div>
 </div>
@@ -622,6 +631,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd remove by making multiple remove calls </p>
 
 </div>
 </div>
@@ -638,6 +648,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd remove against multiple remove calls on the same number </p>
 
 </div>
 </div>
@@ -654,6 +665,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd remove by removing a single number </p>
 
 </div>
 </div>
@@ -670,6 +682,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd solve basic functionality </p>
 
 </div>
 </div>
@@ -686,6 +699,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd solve on a graph with many tasks and no rules </p>
 
 </div>
 </div>
@@ -702,6 +716,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd solve on a graph with one task and no rules </p>
 
 </div>
 </div>
@@ -718,6 +733,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd solve on a small graph </p>
 
 </div>
 </div>
@@ -734,6 +750,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>Test pfd solve against a complex graph </p>
 
 </div>
 </div>
@@ -758,7 +775,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 25 2013 00:26:18 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 25 2013 00:50:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

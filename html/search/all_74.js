@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['task_5fleft',['task_left',['../SpherePFD_8c_09_09.html#a38c1d599161c0222c30c3040d12988c9',1,'SpherePFD.c++']]],
   ['test',['test',['../classtest.html',1,'']]],
   ['test_5fpfd_5fclean_5fbasic_5ffunctionality',['test_pfd_clean_basic_functionality',['../structTestPFD.html#a40f4ab7c0168eb96ffeea7c1ce05bc67',1,'TestPFD']]],
   ['test_5fpfd_5fclean_5fcalling_5fmultiple_5fcleans_5fback_5fto_5fback',['test_pfd_clean_calling_multiple_cleans_back_to_back',['../structTestPFD.html#ac1cd049692073c79ac6f31144e082903',1,'TestPFD']]],

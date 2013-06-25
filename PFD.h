@@ -41,8 +41,8 @@ void pfd_remove(int& task_left, int& initial_total_task, int pfd_graph[MAX_SIZE]
 
 /**
  * read, eval, print loop for solving the PFD sphere problem
- * @param std::istream
- * @param output a std::ostream
+ * @param input an istream object to read data
+ * @param output an ostream object to write data
  * @param pfd_graph A graph representing the partial ordering of the PFD problem 
  * @param min_heap A heap maintaining the list of vertices that have been removed
  */
