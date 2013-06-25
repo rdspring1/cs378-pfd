@@ -1,27 +1,3 @@
-// -------------------------------
-// projects/pfd/RunPFD.c++
-// Ryan Spring
-// Jung (James) Lee
-// -------------------------------
-
-/*
-To run the program:
-    % g++ -ansi -pedantic -Wall RunPFD.c++ -o RunPFD.c++.app
-    % valgrind RunPFD.c++.app < RunPFD.in >& RunPFD.out
-
-To configure Doxygen:
-    % doxygen -g
-That creates the file "Doxyfile".
-Make the following edits:
-    EXTRACT_ALL            = YES
-    EXTRACT_PRIVATE        = YES
-    EXTRACT_STATIC         = YES
-    GENERATE_LATEX         = NO
-
-To document the program:
-    % doxygen Doxyfile
-*/
-
 // -------
 // defines
 // -------
@@ -33,10 +9,9 @@ To document the program:
 // --------
 // includes
 // --------
-
-#include <iostream> // cin, cout, ios_base
-
 #include "PFD.h"
+#include <iostream> // cin, cout, ios_base
+#include <queue>
 
 // ----
 // main
@@ -44,7 +19,10 @@ To document the program:
 
 int main () {
     using namespace std;
+	int pfd_graph[MAX_SIZE][MAX_SIZE]; 
+	priority_queue< int, vector<int>, greater<int> > min_heap;
+		
     ios_base::sync_with_stdio(false); // turn off synchronization with C I/O
-    pfd_solve(cin, cout);
+    pfd_solve(cin, cout, pfd_graph, min_heap);
     return 0;
 }

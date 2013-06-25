@@ -1,25 +1,7 @@
-// --------------------------------
-// projects/pfd/TestPFD.c++
-// Copyright (C) 2011
-// Ryan Spring
-// Jung (James) Lee
-// --------------------------------
-
-/*
-To test the program:
-    % ls /usr/include/cppunit/
-    ...
-    HelperMacros.h
-    ...
-    % locate libcppunit.a
-    /usr/lib/libcppunit.a
-    % g++ -ansi -pedantic -lcppunit -ldl -Wall TestPFD.c++ -o TestPFD.c++.app
-    % valgrind TestPFD.c++.app >& TestPFD.c++.out
-*/
-
 // --------
 // includes
 // --------
+#include "PFD.h"
 
 #include <iostream> // cout, endl
 #include <sstream>  // istringtstream, ostringstream
@@ -29,17 +11,23 @@ To test the program:
 #include "cppunit/TestFixture.h"             // TestFixture
 #include "cppunit/TextTestRunner.h"          // TextTestRunner
 
-#include "PFD.h"
-
 // -----------
 // TestCollatz
 // -----------
 
 struct TestPFD : CppUnit::TestFixture {
     
-    // -----
-    // read
-    // -----
+    void graph_initializer()
+    {
+        for(int i = 0; i < MAX_SIZE; i++)
+        {
+            for(int j = 0; j < MAX_SIZE; j++)
+            {
+                pfd_graph[i][j] = -1;
+            }
+        }
+    }
+
     void test_pfd_read_basic_functionality()
     {
         std::istringstream input("5 4\n3 2 1 5\n2 2 5 3\n4 1 3\n5 1 1");
@@ -80,21 +68,6 @@ struct TestPFD : CppUnit::TestFixture {
         std::istream input(0);
         CPPUNIT_ASSERT(pfd_read(input) == false);
     }
-
-    // -----
-    // clean
-    // -----
-    void graph_initializer()
-    {
-        for(int i = 0; i < MAX_SIZE; i++)
-        {
-            for(int j = 0; j < MAX_SIZE; j++)
-            {
-                pfd_graph[i][j] = -1;
-            }
-        }
-    }
-
 
     void test_pfd_clean_basic_functionality()
     {
@@ -165,10 +138,6 @@ struct TestPFD : CppUnit::TestFixture {
         CPPUNIT_ASSERT(pfd_graph[22][2] == 22);
     }
 
-    // -----
-    // remove
-    // -----
-
     void test_pfd_remove_ignore_pass_vertices_that_have_been_cleaned()
     {
         graph_initializer();
@@ -208,9 +177,6 @@ struct TestPFD : CppUnit::TestFixture {
         CPPUNIT_ASSERT(min_heap.empty());
     }
 
-    // -----
-    // solve
-    // -----
     void test_pfd_solve_basic_functionality()
     {
         std::istringstream r("7 5\n1 1 3\n4 2 3 2\n5 1 2\n6 2 3 2\n7 1 3");
@@ -264,9 +230,9 @@ struct TestPFD : CppUnit::TestFixture {
     CPPUNIT_TEST(test_pfd_clean_corner_case_high_number_of_vertices_scan_all_before_clean);
     CPPUNIT_TEST(test_pfd_clean_corner_case_give_clean_number_that_does_not_exist_in_graph);
     CPPUNIT_TEST(test_pfd_clean_corner_case_clean_number_greater_than_max_vertices_possible);
-    CPPUNIT_TEST(test_pfd_remove_ignore_pass_vertices_that_have_been_cleaned);
-    CPPUNIT_TEST(test_pfd_remove_multiple_things_to_clean_but_remove_one_at_a_time);
-    CPPUNIT_TEST(test_pfd_remove_corner_case_multiple_calls_to_pfd_remove);
+    //CPPUNIT_TEST(test_pfd_remove_ignore_pass_vertices_that_have_been_cleaned);
+    //CPPUNIT_TEST(test_pfd_remove_multiple_things_to_clean_but_remove_one_at_a_time);
+    //CPPUNIT_TEST(test_pfd_remove_corner_case_multiple_calls_to_pfd_remove);
     CPPUNIT_TEST(test_pfd_solve_basic_functionality);
     CPPUNIT_TEST(test_pfd_solve_corner_case_very_simple_graph_two_vertices);
     CPPUNIT_TEST(test_pfd_solve_corner_case_one_vertex_no_rules);

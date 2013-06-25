@@ -35,10 +35,10 @@ RunPFD: PFD.h PFD.c++ RunPFD.c++
 	g++ -pedantic -std=c++0x -Wall PFD.c++ RunPFD.c++ -o RunPFD
 
 RunPFD.out: RunPFD RunPFD.in
-	valgrind RunPFD < RunPFD.in >& RunPFD.out
+	valgrind RunPFD < RunPFD.in > RunPFD.out
 
 TestPFD: PFD.h PFD.c++ TestPFD.c++
 	g++ -pedantic -std=c++0x -Wall PFD.c++ TestPFD.c++ -o TestPFD -lcppunit -ldl
 
 TestPFD.out: TestPFD
-	valgrind TestPFD >& TestPFD.out
+	valgrind TestPFD > TestPFD.out
