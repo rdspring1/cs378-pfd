@@ -1,0 +1,77 @@
+commit fae290aaaf6e60501c4217e1c3161350d77b1950
+Author: rdspring <rdspring1@gmail.com>
+Date:   Tue Jun 25 00:26:51 2013 -0500
+
+    Setup Documentation
+
+commit 8d202106d67f1a88e2a095e92bdd95237c25ce37
+Author: rdspring <rdspring1@gmail.com>
+Date:   Tue Jun 25 00:17:00 2013 -0500
+
+    Fix Unit Tests to work with new makefile PFD version
+
+commit 23e89bba9ad2f3828174eabb6bafc2d40fd05ad6
+Author: rdspring <rdspring1@gmail.com>
+Date:   Mon Jun 24 22:20:31 2013 -0500
+
+    Fix PFD to run with makefile
+
+commit ecdfe5cc38319934a24c445a265d90813b104183
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:53:45 2013 -0500
+
+    Update Acceptance Test Generator
+
+commit 88712d5d86199dc19c6134a9bfbaab6ebf719f0c
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:36:10 2013 -0500
+
+    Create Documentation, Add Assertions, Finish Unit and Acceptance Tests
+
+commit cb77664f477cf0b9d7002e3911ab4c7d2e9e2915
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:28:26 2013 -0500
+
+    Created Acceptance Tests
+
+commit f9ce2f5c50e637da0e1aae00d226a40eefc1567d
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:20:41 2013 -0500
+
+    Passed PFD Sphere Test
+
+commit bf7728b319633a4d2af80b8fb79280d8c838b83e
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:14:04 2013 -0500
+
+    Added comments and changed pfd_clean functionality
+
+commit 8f1e02ed67bf75cad11e93d1c46910ad23b0a1a0
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 16:06:36 2013 -0500
+
+    Implemented min_heap priority queue
+
+commit 266137b1d3320a3d2845df2e20369c5ca3741c7e
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 15:47:51 2013 -0500
+
+    Passed Sphere PFD example
+
+commit c4ae3848c8a3ddbd277678c0e8e6e74e80178904
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 15:37:59 2013 -0500
+
+    Implement basic function structure
+
+commit a8fcc76659cd256ed23d0bc26d6fc657e2ff8902
+Author: rdspring <rdspring1@gmail.com>
+Date:   Wed Jun 19 15:35:27 2013 -0500
+
+    Setup Unit Test Skeleton
+
+commit e6ac24a41374f1eb050a734fd871d81899b05349
+Author: rdspring <rdspring1@gmail.com>
+Date:   Mon Jun 17 19:00:41 2013 -0500
+
+    Setup PFD skeleton
